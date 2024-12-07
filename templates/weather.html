@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'assets/css/weather.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>weather forecast</title>
+</head>
+<body>
+<header>
+    <div class="logo">
+<!--         <img src="assets/img/logo/My%20web%20logo.png" alt="ShopWithSimon Logo">-->
+        <h1>AgriConnect</h1> <!-- Your brand name -->
+<!---->
+    </div>
+    <nav>
+<ul>
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'about' %}">About Us</a></li>
+    <li><a href="{% url 'services' %}">Services</a></li>
+    <li><a href="{% url 'question' %}">FAQs</a></li>
+    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+    <li><a href="{% url 'market' %}">Market</a></li>
+    <li><a href="{% url 'weather' %}">Forecast</a></li>
+    <li><a href="{% url 'loan' %}">Loans</a></li>
+    <li><a href="{% url 'consultation' %}">Consultation</a></li>
+</ul>
+
+    </nav>
+    <div class="header-right">
+<!--        <button id="viewCart" class="btn">-->
+<!--             <a href="cart.html">Cart</a>-->
+<!--        </button> &lt;!&ndash; Cart button &ndash;&gt;-->
+        <button id="loginBtn" class="btn">
+            <a href="login.html">Login</a>
+        </button> <!-- Login button -->
+    </div>
+</header>
+    <!-- Weather Forecast Section -->
+    <section class="weather-forecast">
+        <div class="container">
+            <h2>Weather Forecast for Your Farm</h2>
+            <p>Get real-time weather updates tailored to your farm’s location. Stay informed to make smarter decisions for planting, irrigation, and harvesting.</p>
+
+            <div class="form-container">
+                <label for="city">Enter Your Farm Location (City or Region)</label>
+                <input type="text" id="city" placeholder="Enter your farm location" required>
+                <button class="cta-button" onclick="getWeather()">Get Weather</button>
+            </div>
+
+            <div id="weather-info" class="weather-info">
+                <!-- Weather details will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <script src="weather.js"></script>
+
+
+</body>
+</html>

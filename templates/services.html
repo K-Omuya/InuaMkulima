@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/css/services.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>services</title>
+
+</head>
+<body>
+<header>
+    <div class="logo">
+<!--         <img src="assets/img/logo/My%20web%20logo.png" alt="ShopWithSimon Logo">-->
+        <h1>AgriConnect</h1> <!-- Your brand name -->
+<!---->
+    </div>
+    <nav>
+        <ul>
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'about' %}">About Us</a></li>
+    <li><a href="{% url 'services' %}">Services</a></li>
+    <li><a href="{% url 'question' %}">FAQs</a></li>
+    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+    <li><a href="{% url 'market' %}">Market</a></li>
+    <li><a href="{% url 'weather' %}">Forecast</a></li>
+    <li><a href="{% url 'loan' %}">Loans</a></li>
+    <li><a href="{% url 'consultation' %}">Consultation</a></li>
+</ul>
+
+    </nav>
+    <div class="header-right">
+<!--        <button id="viewCart" class="btn">-->
+<!--             <a href="cart.html">Cart</a>-->
+<!--        </button> &lt;!&ndash; Cart button &ndash;&gt;-->
+        <button id="loginBtn" class="btn">
+            <a href="login.html">Login</a>
+        </button> <!-- Login button -->
+    </div>
+</header>
+<marquee behavior=" " direction="">Tuinue Wakulima Mashinani </marquee>
+
+
+    <!-- Market Produce Section -->
+    <section id="market" class="section">
+        <div class="section-content">
+            <h2>Market Your Produce</h2>
+            <p>Sell your produce online to a wider audience. Easily list your items, set prices, and manage your inventory.</p>
+            <a href="market.html" class="cta-button">Start Selling</a>
+        </div>
+    </section>
+
+    <!-- Free Consultation Section -->
+    <section id="consultation" class="section">
+        <div class="section-content">
+            <h2>Free Consultation</h2>
+            <p>Get expert advice on farming techniques, pest control, irrigation, and more.</p>
+            <a href="consultation.html" class="cta-button">Ask an Expert</a>
+        </div>
+    </section>
+
+    <!-- Farm Incentives Section -->
+    <section id="incentives" class="section">
+        <div class="section-content">
+            <h2>Farm Incentives</h2>
+            <p>Discover available farm incentives, grants, and subsidies to boost your farming operations.</p>
+            <a href="" class="cta-button">Learn More</a>
+            <form method="post" enctype="multipart/form-data" class="text-center d-block m-auto mb-4">
+                {% csrf_token %}
+
+                <h2>Upload Image</h2>
+                {{ form.as_p }}
+                <button type="submit">Upload</button>
+                <a href="{% url 'image' %}" class="btn btn-warning">Display images</a>
+            </form>
+        </div>
+    </section>
+
+    <!-- Weather Forecasting Section -->
+    <section id="weather" class="section">
+        <div class="section-content">
+            <h2>Weather Forecast</h2>
+            <p>Stay informed with real-time weather updates and forecasts to protect your crops and livestock.</p>
+            <a href="weather.html" class="cta-button">Get Forecast</a>
+        </div>
+    </section>
+
+    <!-- Loans and Financing Section -->
+    <section id="loans" class="section">
+        <div class="section-content">
+            <h2>Loans & Financing</h2>
+            <p>Apply for agricultural loans and financing options to grow your farm and improve productivity.</p>
+            <a href="loan.html" class="cta-button">Apply for a Loan</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 SmartAgri - All Rights Reserved</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+
+ <link rel="stylesheet" href="{% static 'assets/css/about.css' %}">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+<!--         <img src="assets/img/logo/My%20web%20logo.png" alt="ShopWithSimon Logo">-->
+        <h1>AgriConnect</h1> <!-- Your brand name -->
+<!---->
+    </div>
+    <nav>
+      <ul>
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'about' %}">About Us</a></li>
+    <li><a href="{% url 'services' %}">Services</a></li>
+    <li><a href="{% url 'question' %}">FAQs</a></li>
+    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+    <li><a href="{% url 'market' %}">Market</a></li>
+    <li><a href="{% url 'weather' %}">Forecast</a></li>
+    <li><a href="{% url 'loan' %}">Loans</a></li>
+    <li><a href="{% url 'consultation' %}">Consultation</a></li>
+</ul>
+
+    </nav>
+    <div class="header-right">
+<!--        <button id="viewCart" class="btn">-->
+<!--             <a href="cart.html">Cart</a>-->
+<!--        </button> &lt;!&ndash; Cart button &ndash;&gt;-->
+        <button id="loginBtn" class="btn">
+            <a href="login.html">Login</a>
+        </button> <!-- Login button -->
+    </div>
+</header>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <div class="container">
+            <h2>About SmartAgri</h2>
+            <p>At SmartAgri, we are dedicated to empowering local farmers with technology and innovation to boost their productivity, access expert advice, and grow their businesses.</p>
+
+            <div class="about-content">
+                <div class="about-item">
+                    <h3>Our Mission</h3>
+                    <p>Our mission is to bridge the gap between technology and agriculture, helping farmers access tools, resources, and markets that can improve their livelihood and farming practices.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Our Vision</h3>
+                    <p>We envision a future where every local farmer can thrive, with access to the best agricultural practices, financial support, and a growing online market for their produce.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Why AgriConnect?</h3>
+                    <ul>
+                        <li>Real-time weather updates tailored to your farm’s location.</li>
+                        <li>Access to expert consultation on farming techniques and best practices.</li>
+                        <li>Opportunities for farmers to sell their produce directly to a larger audience.</li>
+                        <li>Access to farm financing and loans to help grow your operations.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>

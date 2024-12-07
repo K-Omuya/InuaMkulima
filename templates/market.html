@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'assets/css/market.css' %}">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <div class="logo">
+<!--         <img src="assets/img/logo/My%20web%20logo.png" alt="ShopWithSimon Logo">-->
+        <h1>AgriConnect</h1> <!-- Your brand name -->
+<!---->
+    </div>
+    <nav>
+<ul>
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'about' %}">About Us</a></li>
+    <li><a href="{% url 'services' %}">Services</a></li>
+    <li><a href="{% url 'question' %}">FAQs</a></li>
+    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+    <li><a href="{% url 'market' %}">Market</a></li>
+    <li><a href="{% url 'weather' %}">Forecast</a></li>
+    <li><a href="{% url 'loan' %}">Loans</a></li>
+    <li><a href="{% url 'consultation' %}">Consultation</a></li>
+</ul>
+
+    </nav>
+    <div class="header-right">
+<!--        <button id="viewCart" class="btn">-->
+<!--             <a href="cart.html">Cart</a>-->
+<!--        </button> &lt;!&ndash; Cart button &ndash;&gt;-->
+        <button id="loginBtn" class="btn">
+            <a href="login.html">Login</a>
+        </button> <!-- Login button -->
+    </div>
+</header>
+    <!-- Marketplace Page Section -->
+    <section class="marketplace-page">
+        <div class="container">
+            <h1>Welcome to AgriConnect Marketplace</h1>
+            <p>Browse fresh produce from local farmers. Buy directly from the source and support local agriculture.</p>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search for produce...">
+                <button>Search</button>
+            </div>
+
+            <!-- Categories -->
+            <div class="categories">
+                <h2>Categories</h2>
+                <ul>
+                    <li><a href="#">Fruits</a></li>
+                    <li><a href="#">Vegetables</a></li>
+                    <li><a href="#">Grains</a></li>
+                    <li><a href="#">Herbs</a></li>
+                    <li><a href="#">Dairy</a></li>
+                </ul>
+            </div>
+
+            <!-- Products Display -->
+            <div class="product-list">
+                <h2>Featured Products</h2>
+                <div class="products">
+                    <div class="product-card">
+                        <img src="images/apple.jpg" alt="Fresh Apples">
+                        <h3>Fresh Apples</h3>
+                        <p>Ksh 112.50 per kg</p>
+                        <button>Contact Seller</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/tomato.jpg" alt="Fresh Tomatoes">
+                        <h3>Fresh Tomatoes</h3>
+                        <p>Ksh. 30.80 per kg</p>
+                        <button>Contact Seller</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/milk.jpg" alt="Fresh Milk">
+                        <h3>Fresh Milk</h3>
+                        <p>Ksh.50.00 per liter</p>
+                        <button>Contact Seller</button>
+                    </div>
+                    <!-- Add more product cards as needed -->
+                </div>
+            </div>
+
+            <!-- Seller Information -->
+            <div class="seller-info">
+                <h2>Become a Seller</h2>
+                <p>Join our platform and start selling your farm products directly to customers. It's simple and free to get started!</p>
+                <button>Sign Up as Seller</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
