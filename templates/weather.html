@@ -12,33 +12,27 @@
 </head>
 <body>
 <header>
-    <div class="logo">
-<!--         <img src="assets/img/logo/My%20web%20logo.png" alt="ShopWithSimon Logo">-->
-        <h1>AgriConnect</h1> <!-- Your brand name -->
-<!---->
-    </div>
-    <nav>
-<ul>
-    <li><a href="{% url 'index' %}">Home</a></li>
-    <li><a href="{% url 'about' %}">About Us</a></li>
-    <li><a href="{% url 'services' %}">Services</a></li>
-    <li><a href="{% url 'question' %}">FAQs</a></li>
-    <li><a href="{% url 'contact' %}">Contact Us</a></li>
-    <li><a href="{% url 'market' %}">Market</a></li>
-    <li><a href="{% url 'weather' %}">Forecast</a></li>
-    <li><a href="{% url 'loan' %}">Loans</a></li>
-    <li><a href="{% url 'consultation' %}">Consultation</a></li>
-</ul>
+  <div class="logo">
+    <h1>InuaMkulima</h1>
+  </div>
+  <nav>
+    <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'trainings' %}">trainings</a></li>
+            <li><a href="{% url 'incentives' %}">incentives</a></li>
+            <li><a href="{% url 'weather' %}">Forecast</a></li>
+            <li><a href="{% url 'consultation' %}">Consultation</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'question' %}">FAQs</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'market' %}">Market</a></li>
+            <li><a href="{% url 'loan' %}">Loans</a></li>
+            <li><a href="{% url 'show' %}">show</a></li>
+            <li><a href="{% url 'upload' %}">upload</a></li>
 
-    </nav>
-    <div class="header-right">
-<!--        <button id="viewCart" class="btn">-->
-<!--             <a href="cart.html">Cart</a>-->
-<!--        </button> &lt;!&ndash; Cart button &ndash;&gt;-->
-        <button id="loginBtn" class="btn">
-            <a href="login.html">Login</a>
-        </button> <!-- Login button -->
-    </div>
+    </ul>
+  </nav>
 </header>
     <!-- Weather Forecast Section -->
     <section class="weather-forecast">
@@ -46,11 +40,29 @@
             <h2>Weather Forecast for Your Farm</h2>
             <p>Get real-time weather updates tailored to your farm’s location. Stay informed to make smarter decisions for planting, irrigation, and harvesting.</p>
 
-            <div class="form-container">
-                <label for="city">Enter Your Farm Location (City or Region)</label>
-                <input type="text" id="city" placeholder="Enter your farm location" required>
-                <button class="cta-button" onclick="getWeather()">Get Weather</button>
-            </div>
+   <div class="form-container">
+  <label for="city">Enter Your Farm Location (City or Region)</label>
+  <input type="text" id="city" placeholder="Enter your farm location" required>
+  <button
+    class="cta-button"
+    onclick="getWeather()">
+    Get Weather
+  </button>
+</div>
+
+<script>
+  function getWeather() {
+    const city = document.getElementById('city').value;
+    if (city) {
+      // Construct the URL with the city as a query parameter
+      const weatherUrl = `https://www.msn.com/en-xl/weather/forecast?loc=${encodeURIComponent(city)}`;
+      window.location.href = weatherUrl;
+    } else {
+      alert('Please enter a city or region.');
+    }
+  }
+</script>
+
 
             <div id="weather-info" class="weather-info">
                 <!-- Weather details will be displayed here -->
@@ -60,6 +72,24 @@
 
     <script src="weather.js"></script>
 
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About AgriConnect</h3>
+            <p>AgriConnect is a platform that connects local farmers with consumers, enabling direct sales, expert consultations, and support for agricultural businesses. We aim to create a sustainable, farmer-focused ecosystem.</p>
+        </div>
 
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024</p>
 </body>
 </html>

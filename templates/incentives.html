@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Incentives</title>
+    <link rel="stylesheet" href="{% static 'assets/css/incentives.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h1>AgriConnect</h1> <!-- Brand name -->
+    </div>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'trainings' %}">trainings</a></li>
+            <li><a href="{% url 'incentives' %}">incentives</a></li>
+            <li><a href="{% url 'weather' %}">Forecast</a></li>
+            <li><a href="{% url 'consultation' %}">Consultation</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'question' %}">FAQs</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'market' %}">Market</a></li>
+            <li><a href="{% url 'loan' %}">Loans</a></li>
+
+            <li><a href="{% url 'upload' %}">upload</a></li>
+
+        </ul>
+    </nav>
+
+</header>
+
+
+<div class="incentives-container">
+    <h1>Farm Incentives</h1>
+    <div class="incentive-card">
+        <img src="{% static 'assets/img/img_10.png' %}" alt="Subsidized Equipment" />
+        <h2>Subsidized Equipment and Tools</h2>
+        <p>Get discounts on essential farming tools and machinery like tractors and irrigation systems.</p>
+    </div>
+    <div class="incentive-card">
+        <img src="{% static 'assets/img/img_11.png' %}" alt="Quality Seeds and Fertilizers" />
+        <h2>Access to Quality Seeds and Fertilizers</h2>
+        <p>Receive high-quality seeds and fertilizers to increase crop yield.</p>
+    </div>
+    <div class="incentive-card">
+        <img src="{% static 'assets/img/img.png' %}" alt="Training Programs" />
+        <h2>Training and Education Programs</h2>
+        <p>Free or discounted agricultural training to improve farming techniques.</p>
+    </div>
+    <div class="incentive-card">
+        <img src="{% static 'assets/img/img_12.png' %}" alt="Microloans" />
+        <h2>Microloans and Financial Support</h2>
+        <p>Access small loans with low interest rates to grow your farming business.</p>
+    </div>
+    <div class="incentive-card">
+        <img src="{% static 'assets/img/img_13.png' %}" alt="Insurance" />
+        <h2>Insurance Packages</h2>
+        <p>Affordable crop and livestock insurance to protect against risks.</p>
+    </div>
+</div>
+
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About AgriConnect</h3>
+            <p>AgriConnect is a platform that connects local farmers with consumers, enabling direct sales, expert consultations, and support for agricultural businesses. We aim to create a sustainable, farmer-focused ecosystem.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 202
+        </p>
+    </div>
+</footer>
+</body>
+</html>

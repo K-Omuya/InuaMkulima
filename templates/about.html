@@ -1,74 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
-
-
- <link rel="stylesheet" href="{% static 'assets/css/about.css' %}">
-
-    <meta charset="UTF-8">
-    <title>Title</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'assets/css/about.css'%}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - AgriConnect</title>
 </head>
 <body>
+<header style="background-color: green;">
+  <div class="logo">
+    <h1>InuaMkulima</h1>
+  </div>
+  <nav>
+    <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'trainings' %}">trainings</a></li>
+            <li><a href="{% url 'incentives' %}">incentives</a></li>
+            <li><a href="{% url 'weather' %}">Forecast</a></li>
+            <li><a href="{% url 'consultation' %}">Consultation</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'question' %}">FAQs</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'market' %}">Market</a></li>
+            <li><a href="{% url 'loan' %}">Loans</a></li>
 
-<header>
-    <div class="logo">
-<!--         <img src="assets/img/logo/My%20web%20logo.png" alt="ShopWithSimon Logo">-->
-        <h1>AgriConnect</h1> <!-- Your brand name -->
-<!---->
-    </div>
-    <nav>
-      <ul>
-    <li><a href="{% url 'index' %}">Home</a></li>
-    <li><a href="{% url 'about' %}">About Us</a></li>
-    <li><a href="{% url 'services' %}">Services</a></li>
-    <li><a href="{% url 'question' %}">FAQs</a></li>
-    <li><a href="{% url 'contact' %}">Contact Us</a></li>
-    <li><a href="{% url 'market' %}">Market</a></li>
-    <li><a href="{% url 'weather' %}">Forecast</a></li>
-    <li><a href="{% url 'loan' %}">Loans</a></li>
-    <li><a href="{% url 'consultation' %}">Consultation</a></li>
-</ul>
+            <li><a href="{% url 'upload' %}">upload</a></li>
 
-    </nav>
-    <div class="header-right">
-<!--        <button id="viewCart" class="btn">-->
-<!--             <a href="cart.html">Cart</a>-->
-<!--        </button> &lt;!&ndash; Cart button &ndash;&gt;-->
-        <button id="loginBtn" class="btn">
-            <a href="login.html">Login</a>
-        </button> <!-- Login button -->
-    </div>
+    </ul>
+  </nav>
+
 </header>
 
-    <!-- About Us Section -->
-    <section class="about-us">
-        <div class="container">
-            <h2>About SmartAgri</h2>
-            <p>At SmartAgri, we are dedicated to empowering local farmers with technology and innovation to boost their productivity, access expert advice, and grow their businesses.</p>
 
-            <div class="about-content">
-                <div class="about-item">
-                    <h3>Our Mission</h3>
-                    <p>Our mission is to bridge the gap between technology and agriculture, helping farmers access tools, resources, and markets that can improve their livelihood and farming practices.</p>
-                </div>
-                <div class="about-item">
-                    <h3>Our Vision</h3>
-                    <p>We envision a future where every local farmer can thrive, with access to the best agricultural practices, financial support, and a growing online market for their produce.</p>
-                </div>
-                <div class="about-item">
-                    <h3>Why AgriConnect?</h3>
-                    <ul>
-                        <li>Real-time weather updates tailored to your farm’s location.</li>
-                        <li>Access to expert consultation on farming techniques and best practices.</li>
-                        <li>Opportunities for farmers to sell their produce directly to a larger audience.</li>
-                        <li>Access to farm financing and loans to help grow your operations.</li>
-                    </ul>
-                </div>
-            </div>
+<section class="marquee">
+  <marquee>Welcome to Inuamkulima - Your Smart Agriculture Partner for the Future!</marquee>
+</section>
+<!-- Rest of the content -->
+
+
+<!-- About Us Section -->
+<section class="about-us">
+  <div class="container">
+    <h2>About AgriConnect</h2>
+    <p>At AgriConnect, we empower local farmers with technology and innovation to boost productivity and grow their businesses.</p>
+    <div class="about-content">
+      <div class="about-item">
+        <h3>Our Mission</h3>
+        <p>We bridge the gap between technology and agriculture, providing tools, resources, and markets to enhance farmers' livelihoods.</p>
+      </div>
+      <div class="about-item">
+        <h3>Our Vision</h3>
+        <p>We envision thriving local farmers equipped with the best practices, financial support, and access to a broader market.</p>
+      </div>
+      <div class="about-item">
+        <h3>Why AgriConnect?</h3>
+        <ul>
+          <li>Real-time weather updates tailored to your location.</li>
+          <li>Expert consultations on farming techniques and best practices.</li>
+          <li>Opportunities to sell produce directly to a larger audience.</li>
+          <li>Access to farm financing and loans.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About AgriConnect</h3>
+            <p>AgriConnect is a platform that connects local farmers with consumers, enabling direct sales, expert consultations, and support for agricultural businesses. We aim to create a sustainable, farmer-focused ecosystem.</p>
         </div>
-    </section>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+                <li><a href="contacts.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024</p>
+    </div>
+        </footer>
 
-
-</body>
-</html>
+ </body>
+   </html>

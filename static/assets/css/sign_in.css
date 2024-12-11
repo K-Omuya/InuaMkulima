@@ -5,6 +5,63 @@
     box-sizing: border-box;
 }
 
+
+/* Header */
+header {
+    background-color: #4caf50; /* Your favorite green color */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #c8e6c9; /* Light green hover effect */
+}
+
+header .header-right .btn a {
+    text-decoration: none;
+    color: white;
+}
+
+header .header-right .btn {
+    background-color: #388e3c; /* Darker green for buttons */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+header .header-right .btn:hover {
+    background-color: #2e7d32; /* Even darker green */
+}
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
@@ -13,8 +70,8 @@ body {
     font-size: 16px;
 }
 
-/* Sign In Section */
-.signin {
+/* Login Section */
+.login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +114,7 @@ input {
 }
 
 .cta-button {
-    background-color: #1abc9c;
+    background-color: green;
     color: #fff;
     padding: 12px;
     border: none;
@@ -68,7 +125,7 @@ input {
 }
 
 .cta-button:hover {
-    background-color: #16a085;
+    background-color: green;
 }
 
 p {
@@ -78,7 +135,7 @@ p {
 }
 
 a {
-    color: #1abc9c;
+    color: green;
     text-decoration: none;
 }
 
@@ -96,6 +153,53 @@ a:hover {
     }
 
     input {
-        font-size:0.9rem;
+        font-size: 0.9rem;
+    }
 }
+
+/* Footer Styles */
+footer {
+    background-color: #45a049;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #215c2d; /* Green hover effect */
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
 }

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     {% load static %}
+     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
     <link rel="stylesheet" href="{% static 'assets/css/sign_in.css' %}">
 
@@ -9,9 +11,101 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>login</title>
+     <style>
+    /* Internal CSS for the Header Section */
+    header {
+      background-color: green; /* Green background for the header */
+      color: white; /* White text for better contrast */
+      padding: 20px;
+      text-align: center; /* Center-align the logo */
+    }
+
+    header .logo h1 {
+      font-size: 2em;
+      margin: 0; /* Remove default margin */
+    }
+        /* Internal CSS for Sign-in Section */
+    .signin {
+      background-image: url('static/assets/img/img.png'); /* Replace with the path to your image */
+      background-size: cover; /* Ensure the background covers the entire section */
+      background-position: center; /* Center the background image */
+      padding: 40px 20px;
+      color: white; /* Ensure text stands out against the background */
+    }
+
+    .signin .container {
+      background-color: rgba(0, 0, 0, 0.6); /* Add a translucent dark overlay for better text readability */
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .signin h2 {
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .signin label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .signin input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .signin button {
+      background-color: green;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      width: 100%;
+    }
+
+    .signin button:hover {
+      background-color: darkgreen;
+    }
+
+    .signin p {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .signin a {
+      color: green;
+      text-decoration: none;
+    }
+
+    .signin a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+<header>
+  <div class="logo">
+    <h1>InuaMkulima</h1>
+  </div>
+
+</header>
+
+
+    <!-- Marquee Section -->
+    <section class="marquee">
+        <marquee>Welcome to Inuamkulima - Your Smart Agriculture Partner for the Future!</marquee>
+    </section>
+
 
 
     <!-- Sign In Section -->
@@ -31,11 +125,12 @@
 
                 <button type="submit" class="cta-button">Sign In</button>
             </form>
-            <p>Already have an account? <a href="login.html">Login here</a></p>
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a>
+</p>
         </div>
     </section>
 
-    <script src="signin.js"></script>
+
 
 
 

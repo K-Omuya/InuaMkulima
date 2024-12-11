@@ -1,87 +1,113 @@
 /* General Reset */
-/* General Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-header .logo img {
-    width: 150px; /* Adjust the size of the logo */
-    height: auto;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #e6e8ea;
-  color: #333;
-}
-/header/
-/* General Header Styles */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: #16a085;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-header .logo h1 {
-    margin: 0;
-    font-size: 2.5em;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Header Right Section (Cart & Login buttons) */
-.header-right {
-    display: flex;
-    align-items: center;
-}
-
-.header-right .btn {
-    background-color: #16a085;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1em;
-    margin-left: 20px;
-    border: none;
-    cursor: pointer;
-    float: right;
-}
-
-.header-right .btn:hover {
-    background-color: #08a688;
-
-}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
+/* Header */
+header {
+    background-color: #4caf50; /* Your favorite green color */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #c8e6c9; /* Light green hover effect */
+}
+
+header .header-right .btn a {
+    text-decoration: none;
+    color: white;
+}
+
+header .header-right .btn {
+    background-color: #388e3c; /* Darker green for buttons */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+header .header-right .btn:hover {
+    background-color: #2e7d32; /* Even darker green */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #45a049;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #215c2d; /* Green hover effect */
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
 
 body {
     font-family: Arial, sans-serif;
@@ -192,6 +218,6 @@ li {
     .application-form input,
     .application-form select,
     .application-form textarea {
-        font-size:0.9rem;
-}
+        font-size: 0.9rem;
+    }
 }

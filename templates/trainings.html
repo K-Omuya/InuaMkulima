@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/css/trainings.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <h1>InuaMkulima</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="{% url 'index' %}" style="font-size: 14px;">Home</a></li>
+      <li><a href="{% url 'about' %}" style="font-size: 14px;">About Us</a></li>
+      <li><a href="{% url 'trainings' %}" style="font-size: 14px;">Trainings</a></li>
+      <li><a href="{% url 'incentives' %}" style="font-size: 14px;">Incentives</a></li>
+      <li><a href="{% url 'weather' %}" style="font-size: 14px;">Forecast</a></li>
+      <li><a href="{% url 'consultation' %}" style="font-size: 14px;">Consultation</a></li>
+      <li><a href="{% url 'services' %}" style="font-size: 14px;">Services</a></li>
+      <li><a href="{% url 'question' %}" style="font-size: 14px;">FAQs</a></li>
+      <li><a href="{% url 'contact' %}" style="font-size: 14px;">Contact Us</a></li>
+      <li><a href="{% url 'market' %}" style="font-size: 14px;">Market</a></li>
+      <li><a href="{% url 'loan' %}" style="font-size: 14px;">Loans</a></li>
+
+      <li><a href="{% url 'upload' %}" style="font-size: 14px;">Upload</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+
+
+    <!-- Marquee Section -->
+    <section class="marquee">
+        <marquee>Welcome to Inuamkulima - Your Smart Agriculture Partner for the Future!</marquee>
+    </section>
+<div class="learn-more-container">
+    <h1>Learn More About Our Training Programs</h1>
+    <section class="training-details">
+        <h2>Our Training Courses</h2>
+        <p>At Inuamkulima, we offer a variety of training programs to help farmers improve their skills and boost their productivity. Our programs include:</p>
+        <ul>
+            <li><strong>Modern Farming Techniques</strong> - Learn the latest techniques to improve crop yields and farm efficiency.</li>
+            <li><strong>Sustainable Agriculture</strong> - Understand the principles of sustainability and how to implement eco-friendly practices.</li>
+            <li><strong>Pest and Disease Management</strong> - Gain insights into managing pests and diseases on your farm with minimal chemicals.</li>
+            <li><strong>Financial Management for Farmers</strong> - Learn how to manage your farm finances and access financial resources.</li>
+            <li><strong>Climate-Smart Agriculture</strong> - Learn to adapt to climate changes with techniques designed to protect your crops and livestock.</li>
+        </ul>
+    </section>
+
+    <section class="enrollment-info">
+        <h2>How to Enroll</h2>
+        <p>To enroll in our training programs, follow these steps:</p>
+        <ol>
+            <li>Sign up on the Inuamkulima platform.</li>
+            <li>Browse through our available training programs.</li>
+            <li>Choose the program that best suits your needs.</li>
+            <li>Register and make a payment (if applicable).</li>
+            <li>Receive confirmation and join the training sessions.</li>
+        </ol>
+        <p>If you have any questions, feel free to reach out to our support team for more information!</p>
+    </section>
+
+    <section class="upcoming-sessions">
+        <h2>Upcoming Training Sessions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Start Date</th>
+                    <th>Duration</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Modern Farming Techniques</td>
+                    <td>January 15, 2025</td>
+                    <td>3 Weeks</td>
+                    <td>Online</td>
+                </tr>
+                <tr>
+                    <td>Sustainable Agriculture</td>
+                    <td>February 5, 2025</td>
+                    <td>4 Weeks</td>
+                    <td>In-person (Nairobi)</td>
+                </tr>
+                <tr>
+                    <td>Pest and Disease Management</td>
+                    <td>March 1, 2025</td>
+                    <td>2 Weeks</td>
+                    <td>Online</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="contact-info">
+        <h2>Contact Us</h2>
+        <p>If you need more information or have any questions, please contact us at:</p>
+        <p>Email: <a href="maryakoth846@gmail.com">maryakoth846@gmail.com</a></p>
+        <p>Phone: +254 795 330 891</p>
+    </section>
+</div>
+</body>
+</html>
