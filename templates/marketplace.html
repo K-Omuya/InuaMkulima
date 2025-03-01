@@ -1,47 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
+{% extends 'base.html' %}
 
-    <link rel="stylesheet" href="{% static 'assets/css/market.css' %}">
+{% load static %}
 
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<header>
-    <div class="logo">
-<!--         <img src="assets/img/logo/My%20web%20logo.png" alt="ShopWithSimon Logo">-->
-        <h1>AgriConnect</h1> <!-- Your brand name -->
-<!---->
-    </div>
-    <nav>
-<ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'trainings' %}">trainings</a></li>
-            <li><a href="{% url 'incentives' %}">incentives</a></li>
-            <li><a href="{% url 'weather' %}">Forecast</a></li>
-            <li><a href="{% url 'consultation' %}">Consultation</a></li>
-            <li><a href="{% url 'services' %}">Services</a></li>
-            <li><a href="{% url 'question' %}">FAQs</a></li>
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-            <li><a href="{% url 'market' %}">Market</a></li>
-            <li><a href="{% url 'loan' %}">Loans</a></li>
+{% block content %}
+    <style>
+        .marketplace-page {
+    padding: 40px;
+    text-align: center;
+}
 
-            <li><a href="{% url 'upload' %}">upload</a></li>
-</ul>
+.marketplace-page h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
 
-    </nav>
-    <div class="header-right">
-<!--        <button id="viewCart" class="btn">-->
-<!--             <a href="cart.html">Cart</a>-->
-<!--        </button> &lt;!&ndash; Cart button &ndash;&gt;-->
-        <button id="loginBtn" class="btn">
-            <a href="login.html">Login</a>
-        </button> <!-- Login button -->
-    </div>
-</header>
+.marketplace-page p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.search-bar {
+    margin-bottom: 30px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #45a049;
+}
+
+.categories {
+    margin-bottom: 40px;
+}
+
+.categories ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.categories ul li {
+    margin-right: 30px;
+}
+
+.categories ul li a {
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+}
+
+.categories ul li a:hover {
+    color: #4CAF50;
+}
+
+.product-list {
+    margin-bottom: 40px;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.product-card p {
+    font-size: 16px;
+    color: #4CAF50;
+    margin-top: 10px;
+}
+
+.product-card button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: #45a049;
+}
+
+/* Seller Information */
+.seller-info {
+    margin-top: 40px;
+}
+
+.seller-info h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.seller-info p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.seller-info button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.seller-info button:hover {
+    background-color: #45a049;
+}
+
+    </style>
     <!-- Marketplace Page Section -->
     <section class="marketplace-page">
         <div class="container">
@@ -101,5 +203,4 @@
         </div>
     </section>
 
-</body>
-</html>
+{% endblock %}
