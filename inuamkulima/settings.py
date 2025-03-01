@@ -87,6 +87,34 @@ import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from a .env file (optional)
+load_dotenv()
+
+# SECRET KEY
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "your-default-secret-key")
+
+# DEBUG Mode (Use False in production)
+DEBUG = os.getenv("DEBUG", "False") == "True"
+
+# Allowed Hosts
+import os
+
+
+ALLOWED_HOSTS = ['*']
+
+# Database Configuration (Optional: If using PostgreSQL)
+DATABASES = {
+    "default": {
+        "USER": os.getenv("DB_USER", "default_user"),
+        "PASSWORD": os.getenv("DB_PASSWORD", "default_password"),
+        "HOST": os.getenv("DB_HOST", "localhost"),
+        "PORT": os.getenv("DB_PORT", "5432"),
+    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
