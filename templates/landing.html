@@ -1,10 +1,186 @@
-<!DOCTYPE html>
+{% load static %}
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <style>
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            background: url("{% static 'assets/img/img_5.png' %}") no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero-content {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: #3CB371;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .btn-primary:hover {
+            background: #2E8B57;
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links a {
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            font-weight: bold;
+            background: #ff8200;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background: #cc6600;
+        }
+
+        /* Sections */
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .service-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .service-box h3 {
+            color: #004080;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn-primary {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+
 </head>
 <body>
-$END$
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to InuaMkulima</h1>
+            <p>Empowering Farmers, Connecting Markets, and Transforming Agriculture</p>
+            <a href="{% url 'market' %}" class="btn-primary">Explore Market</a>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="nav-links" style="text-align: center; padding: 15px;">
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'form' %}">Register</a>
+    </div>
+
+    <!-- About Section -->
+    <section class="section" style="background: #f5f5f5;">
+        <h2>About Us</h2>
+        <p>InuaMkulima is a platform that connects farmers with markets, provides valuable training, and supports agribusiness development.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service-box">
+                <h3>Market Access</h3>
+                <p>Connect with buyers and sellers for better pricing and availability.</p>
+            </div>
+            <div class="service-box">
+                <h3>Agricultural Training</h3>
+                <p>Get expert training on modern farming techniques and sustainability.</p>
+            </div>
+            <div class="service-box">
+                <h3>Weather Forecast</h3>
+                <p>Access up-to-date weather forecasts for better farming decisions.</p>
+            </div>
+            <div class="service-box">
+                <h3>Financial Support</h3>
+                <p>Find agricultural loans, grants, and incentives for your farm.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" style="background: #f5f5f5;">
+        <h2>Get in Touch</h2>
+        <p>Have questions? Reach out to us and let's transform agriculture together.</p>
+        <a href="{% url 'contact' %}" class="btn-primary">Contact Us</a>
+    </section>
+
+
 </body>
 </html>

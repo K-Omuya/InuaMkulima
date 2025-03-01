@@ -1,102 +1,137 @@
-<!doctype html>
-<html lang="en">
-<head>
-    {% load static %}
+{% extends 'base.html' %}
 
-    <link rel="stylesheet" href="{% static 'assets/css/faqs.css' %}">
+{% load static %}
 
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FAQs</title>
-</head>
-<body>
-<header>
-    <div class="logo">
-<!--         <img src="assets/img/logo/My%20web%20logo.png" alt="ShopWithSimon Logo">-->
-        <h1>AgriConnect</h1> <!-- Your brand name -->
-<!---->
-    </div>
-    <nav>
-<ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'trainings' %}">trainings</a></li>
-            <li><a href="{% url 'incentives' %}">incentives</a></li>
-            <li><a href="{% url 'weather' %}">Forecast</a></li>
-            <li><a href="{% url 'consultation' %}">Consultation</a></li>
-            <li><a href="{% url 'services' %}">Services</a></li>
-            <li><a href="{% url 'question' %}">FAQs</a></li>
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-            <li><a href="{% url 'market' %}">Market</a></li>
-            <li><a href="{% url 'loan' %}">Loans</a></li>
+{% block content %}
+    <style>
+        .faq-section {
+    max-width: 90%; /* Use percentage for better responsiveness */
+    margin: 20px auto;
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
 
-            <li><a href="{% url 'upload' %}">upload</a></li>
+.faq-title {
+    font-size: 22px;
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
 
-</ul>
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-    </nav>
-    <div class="header-right">
-<!--        <button id="viewCart" class="btn">-->
-<!--             <a href="cart.html">Cart</a>-->
-<!--        </button> &lt;!&ndash; Cart button &ndash;&gt;-->
-        <button id="loginBtn" class="btn">
-            <a href="login.html">Login</a>
-        </button> <!-- Login button -->
-    </div>
-</header>
+.faq-question {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
+/* Smaller screens adjustments */
+@media (max-width: 600px) {
+    .faq-section {
+        padding: 10px;
+    }
+    .faq-title {
+        font-size: 20px;
+    }
+    .faq-question {
+        font-size: 14px;
+    }
+    .faq-answer {
+        font-size: 13px;
+    }
+}
 
-            <!-- FAQ Item 1 -->
-            <div class="faq-item">
-                <button class="faq-question">What is SmartAgri?</button>
-                <div class="faq-answer">
-                    <p>SmartAgri is a platform that helps farmers access technology, resources, and markets to improve productivity, gain insights from experts, and get financial support for their farming activities.</p>
-                </div>
+    </style>
+
+    <section class="faq-section">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                What is AgriConnect?
+                <span>+</span>
             </div>
-
-            <!-- FAQ Item 2 -->
-            <div class="faq-item">
-                <button class="faq-question">How can I sell my produce on SmartAgri?</button>
-                <div class="faq-answer">
-                    <p>You can easily register as a seller, list your produce, and connect directly with buyers through our platform. We also provide logistics support and payment solutions for seamless transactions.</p>
-                </div>
+            <div class="faq-answer">
+                AgriConnect is a platform that connects farmers with technology, helping them increase productivity and market access.
             </div>
+        </div>
 
-            <!-- FAQ Item 3 -->
-            <div class="faq-item">
-                <button class="faq-question">Do you offer free consultations for farmers?</button>
-                <div class="faq-answer">
-                    <p>Yes, we provide free consultations with agriculture experts. You can ask questions about farming practices, techniques, and best practices through our platform.</p>
-                </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                How can I register as a farmer?
+                <span>+</span>
             </div>
-
-            <!-- FAQ Item 4 -->
-            <div class="faq-item">
-                <button class="faq-question">How can I access farm financing?</button>
-                <div class="faq-answer">
-                    <p>SmartAgri partners with financial institutions to offer loans and other financial products for farmers. You can apply for financing through the platform, and we’ll guide you through the process.</p>
-                </div>
+            <div class="faq-answer">
+                You can register by visiting our sign-up page and filling in your farming details.
             </div>
+        </div>
 
-            <!-- FAQ Item 5 -->
-            <div class="faq-item">
-                <button class="faq-question">Can I get weather updates for my farm?</button>
-                <div class="faq-answer">
-                    <p>Yes, we provide real-time weather forecasts specific to your farm’s location to help you plan better and ensure your crops thrive.</p>
-                </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Does AgriConnect provide financial support?
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, we offer financing options and partnerships with agricultural lenders to support farmers.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Is there a mobile app for AgriConnect?
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, we have a mobile app available on both Android and iOS for easy access to farming tools and information.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How can I contact AgriConnect support?
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                You can reach out to our support team via email at support@agrictconnect.com or call us at +254 700 123 456.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                What crops does AgriConnect support?
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                We support a wide variety of crops, including maize, wheat, coffee, tea, and horticultural produce.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Can I access weather forecasts on AgriConnect?
+                <span>+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, we provide real-time weather forecasts to help farmers plan their activities better.
             </div>
         </div>
     </section>
 
-    <script src="faq.js"></script>
-
-
-
-</body>
-</html>
+    <script>
+        document.querySelectorAll(".faq-item").forEach(item => {
+            item.addEventListener("click", () => {
+                item.classList.toggle("active");
+            });
+        });
+    </script>
+{% endblock %}

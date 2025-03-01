@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="learn-more-container">
+    <h1>Upcoming Training Sessions</h1>
+
+    <!-- Add New Training Session Form -->
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Training Session</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Start Date</th>
+                <th>Duration</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for session in sessions %}
+            <tr>
+                <td>{{ session.course }}</td>
+                <td>{{ session.start_date }}</td>
+                <td>{{ session.duration }}</td>
+                <td>{{ session.location }}</td>
+                 <td>
+                    <a href="{% url 'edit_training_session' session.id %}" class="btn btn-primary">Edit</a>
+                    </td>
+                <td>
+                    <a href="{% url 'delete_session' session.id %}" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No training sessions available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

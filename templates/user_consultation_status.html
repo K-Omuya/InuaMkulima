@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<h2>Your Consultation Requests</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Consultation Type</th>
+        <th>Status</th>
+        <th>Consultation Date</th>
+    </tr>
+    {% for request in requests %}
+    <tr>
+        <td>{{ request.name }}</td>
+        <td>{{ request.email }}</td>
+        <td>{{ request.consultation_type }}</td>
+        <td>{{ request.status }}</td>
+        <td>{{ request.consultation_date|default:"Not Assigned" }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No consultation requests found.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

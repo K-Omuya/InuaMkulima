@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<h2>Manage Consultation Requests</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Consultation Type</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    {% for request in requests %}
+    <tr>
+        <td>{{ request.name }}</td>
+        <td>{{ request.email }}</td>
+        <td>{{ request.phone|default:"N/A" }}</td>
+        <td>{{ request.consultation_type }}</td>
+        <td>{{ request.status }}</td>
+        <td>
+            {% if request.status == 'pending' %}
+            <form method="post" action="{% url 'approve_consultation' request.id %}">
+                {% csrf_token %}
+                <input type="date" name="consultation_date" required>
+                <button type="submit">Approve</button>
+            </form>
+            <a href="{% url 'deny_consultation' request.id %}">Deny</a>
+            {% else %}
+            {{ request.status|title }}
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

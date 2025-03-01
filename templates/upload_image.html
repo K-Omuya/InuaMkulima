@@ -1,15 +1,209 @@
-{% extends 'starter-page.html' %}
+{% extends 'base.html' %}
 {% load static %}
-{% block body %}
-	   <!---Upload image--->
 
-    <form method="post" enctype="multipart/form-data" class="text-center d-block m-auto mb-4">
-        {% csrf_token %}
+{% block content %}
+    <style>
+        .loan-page {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            background-color: #ffffff;
+        }
 
-         <h2>Upload Image</h2>
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
-        <a href="{% url 'image' %}" class="btn btn-warning">Display images</a>
-    </form>
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, p, ul, li, label, input, select, textarea, button, .payment-link {
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #1abc9c;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            font-size: 1.1rem;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .application-form {
+            margin-top: 20px;
+        }
+
+        .application-form label {
+            font-size: 1rem;
+            color: #333;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .application-form input,
+        .application-form select,
+        .application-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            font-size: 1rem;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: block;
+        }
+
+        .application-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .application-form button {
+            background-color: #1abc9c;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .application-form button:hover {
+            background-color: #16a085;
+        }
+
+        .payment-link {
+            display: block;
+            margin-top: 10px;
+            color: #e67e22;
+            font-size: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .payment-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .application-form input,
+            .application-form select,
+            .application-form textarea {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <!-- Loan Page Section -->
+    <section class="loan-page">
+        <div class="container">
+            <h1>Apply for Agricultural Loans</h1>
+            <p>Get access to financial assistance to grow your farm. Explore loan types, benefits, and apply directly online.</p>
+
+            <!-- Loan Types -->
+            <div class="loan-types">
+                <h2>Loan Types</h2>
+                <ul>
+                    <li><strong>Short-Term Loans:</strong> For immediate farming needs like seeds, fertilizers, etc.</li>
+                    <li><strong>Long-Term Loans:</strong> For expansion or purchasing of farm equipment.</li>
+                    <li><strong>Seasonal Loans:</strong> To support farming during specific seasons.</li>
+                </ul>
+            </div>
+
+            <!-- Eligibility Criteria -->
+            <div class="eligibility">
+                <h2>Eligibility Criteria</h2>
+                <ul>
+                    <li>Must be a registered farmer in your region.</li>
+                    <li>Must have a valid farm account and financial history.</li>
+                    <li>Demonstrate a plan for using the loan efficiently.</li>
+                </ul>
+            </div>
+
+            <!-- Loan Benefits -->
+            <div class="benefits">
+                <h2>Loan Benefits</h2>
+                <ul>
+                    <li>Low-interest rates with flexible repayment plans.</li>
+                    <li>Fast loan approval process.</li>
+                    <li>Access to additional agricultural support and resources.</li>
+                </ul>
+            </div>
+
+            <!-- Loan Application Form -->
+            <div class="application-form">
+                <h2>Apply for a Loan</h2>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="loan-type">Loan Type:</label>
+                    <select id="loan-type" name="loan_type" required>
+                        <option value="short-term">Short-Term Loan</option>
+                        <option value="long-term">Long-Term Loan</option>
+                        <option value="seasonal">Seasonal Loan</option>
+                    </select>
+
+                    <label for="amount">Loan Amount (in Ksh.):</label>
+                    <input type="number" id="amount" name="amount" required>
+
+                    <label for="farm-address">Farm Location:</label>
+                    <input type="text" id="farm-address" name="farm_address" required>
+
+                    <label for="message">Why do you need this loan?</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+
+                    <a href="{% url 'pay' %}" class="payment-link">Membership payment</a>
+
+                    <button type="submit">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

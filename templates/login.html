@@ -1,78 +1,141 @@
-<!doctype html>
-<html lang="en">
-<head>
+{% extends 'base.html' %}
 {% load static %}
 
-    <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>login</title>
-</head>
-<body>
+{% block content %}
+    <style>
+        body {
+            background: url("{% static 'background.jpg' %}") no-repeat center center/cover;
+            background-color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            background-color: #e0e5ec;
+            border-radius: 10px;
+            box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+            padding: 2rem;
+            text-align: left;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+        }
+        h2 {
+            color: #004080;
+            text-align: left;
+        }
+        p {
+            color: #777;
+            text-align: left;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            background-color: #e0e5ec;
+            border-radius: 5px;
+            box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+            padding: 0.5rem;
+            margin: 1rem 0;
+        }
+        .input-group input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 0.5rem;
+            flex: 1;
+            font-size: 1rem;
+        }
+        .btn {
+            background-color: #FF8200;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+            padding: 0.75rem 2rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #e67300;
+        }
+        .sign-in {
+            display: block;
+            margin-top: 1rem;
+            color: #FF8200;
+            text-decoration: none;
+            text-align: left;
+        }
+        .sign-in:hover {
+            text-decoration: underline;
+        }
+        .messages {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .messages li {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .error {
+            background-color: #ffdddd;
+            color: #d8000c;
+            border: 1px solid #d8000c;
+        }
+        .success {
+            background-color: #ddffdd;
+            color: #4F8A10;
+            border: 1px solid #4F8A10;
+        }
 
-    <!-- Login Section -->
-    <section class="login">
-        <div class="container">
-            <h2>Login to Your Account</h2>
-            <form method="POST">
-                {% csrf_token %}
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 1.5rem;
+            }
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
 
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    <div class="container">
+        <h2>Books for All</h2>
+        <h2>Login</h2>
+        <p>Enter your credentials to continue</p>
 
-                <button type="submit" class="cta-button">Login</button>
-            </form>
-            <p>Don't have an account? <a href={% url 'form'%}>Sign Up</a></p>
-        </div>
-    </section>
+        <!-- Display Django messages -->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
 
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
 
+            <button type="submit" class="btn">Login</button>
 
-
-</body>
-</html>
-{#<!doctype html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    {% load static %}#}
-{##}
-{##}
-{#    <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">#}
-{##}
-{#    <meta charset="UTF-8">#}
-{#    <meta name="viewport"#}
-{#          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">#}
-{#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
-{#    <title>Document</title>#}
-{#</head>#}
-{#<body>#}
-{##}
-{#    <!-- Login Section -->#}
-{#    <section class="login">#}
-{#        <div class="container">#}
-{#            <h2>Login to Your Account</h2>#}
-{#            <form method="POST" >#}
-{#                {% csrf_token %}#}
-{#                <label for="email">Email Address</label>#}
-{#                <input type="email" id="email" name="email" placeholder="Enter your email" required>#}
-{##}
-{#                <label for="password">Password</label>#}
-{#                <input type="password" id="password" name="password" placeholder="Enter your password" required>#}
-{##}
-{#                <button type="submit" class="cta-button">Login</button>#}
-{#            </form>#}
-{#            <p>Don't have an account? <a href="{% url 'form' %}">Sign Up</a></p>#}
-{#        </div>#}
-{#    </section>#}
-{#    <script src={% static 'signin.js' %}></script>#}
-{##}
-{##}
-{##}
-{##}
-{#</body>#}
-{#</html>#}
+            <p class="link">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+        </form>
+    </div>
+{% endblock %}

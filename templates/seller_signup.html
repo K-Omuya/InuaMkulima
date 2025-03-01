@@ -1,10 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* Page Layout */
+    .seller-signup {
+        width: 90%;
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .seller-signup h2 {
+        color: #004080;
+        margin-bottom: 15px;
+    }
+
+    /* Form Styling */
+    .seller-signup form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .seller-signup input,
+    .seller-signup select,
+    .seller-signup textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Submit Button */
+    .seller-signup button {
+        background: #4CAF50;
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .seller-signup button:hover {
+        background: #3a923f;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+        .seller-signup {
+            width: 100%;
+            padding: 15px;
+        }
+    }
+</style>
+
+<section class="seller-signup">
+    <h2>Become a Seller</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+</section>
+
+{% endblock %}

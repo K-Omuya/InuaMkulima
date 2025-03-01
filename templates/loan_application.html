@@ -165,40 +165,43 @@
                 </ul>
             </div>
 
-            <!-- Loan Application Form -->
-            <div class="application-form">
-                <h2>Apply for a Loan</h2>
-                <form action="#" method="POST">
-                    {% csrf_token %}
+            <form method="POST" class="loan-form-container">
+    {% csrf_token %}
+    <h2>Apply for a Loan</h2>
 
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required>
+    <div class="form-group">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+    </div>
 
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required>
+    <div class="form-group">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+    </div>
 
-                    <label for="loan-type">Loan Type:</label>
-                    <select id="loan-type" name="loan-type" required>
-                        <option value="short-term">Short-Term Loan</option>
-                        <option value="long-term">Long-Term Loan</option>
-                        <option value="seasonal">Seasonal Loan</option>
-                    </select>
+    <div class="form-group">
+        {{ form.loan_type.label_tag }}
+        {{ form.loan_type }}
+    </div>
 
-                    <label for="amount">Loan Amount (in Ksh.):</label>
-                    <input type="number" id="amount" name="amount" required>
+    <div class="form-group">
+        {{ form.amount.label_tag }}
+        {{ form.amount }}
+    </div>
 
-                    <label for="farm-address">Farm Location:</label>
-                    <input type="text" id="farm-address" name="farm-address" required>
+    <div class="form-group">
+        {{ form.farm_address.label_tag }}
+        {{ form.farm_address }}
+    </div>
 
-                    <label for="message">Why do you need this loan?</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
+    <div class="form-group">
+        {{ form.message.label_tag }}
+        {{ form.message }}
+    </div>
 
-                    <a href="{% url 'pay' %}" class="payment-link">Membership payment</a>
+    <button type="submit">Submit Application</button>
+</form>
 
-                    <button type="submit">Submit Application</button>
-                </form>
-            </div>
-        </div>
-    </section>
+
 
 {% endblock %}

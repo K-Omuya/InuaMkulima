@@ -1,92 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farm Incentives</title>
-    <link rel="stylesheet" href="{% static 'assets/css/incentives.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
 
-<header>
-    <div class="logo">
-        <h1>AgriConnect</h1> <!-- Brand name -->
-    </div>
-    <nav>
-        <ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'trainings' %}">trainings</a></li>
-            <li><a href="{% url 'incentives' %}">incentives</a></li>
-            <li><a href="{% url 'weather' %}">Forecast</a></li>
-            <li><a href="{% url 'consultation' %}">Consultation</a></li>
-            <li><a href="{% url 'services' %}">Services</a></li>
-            <li><a href="{% url 'question' %}">FAQs</a></li>
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-            <li><a href="{% url 'market' %}">Market</a></li>
-            <li><a href="{% url 'loan' %}">Loans</a></li>
+{% load static %}
 
-            <li><a href="{% url 'upload' %}">upload</a></li>
+{% block content %}
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        </ul>
-    </nav>
+        /* Responsive Farm Incentives Section */
+        .incentives-section {
+            text-align: center;
+            padding: 20px;
+        }
 
-</header>
+        .incentives-section h1 {
+            font-size: 2rem;
+            color: #004080;
+            margin-bottom: 20px;
+        }
 
+        .incentives-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
 
-<div class="incentives-container">
-    <h1>Farm Incentives</h1>
-    <div class="incentive-card">
-        <img src="{% static 'assets/img/img_10.png' %}" alt="Subsidized Equipment" />
-        <h2>Subsidized Equipment and Tools</h2>
-        <p>Get discounts on essential farming tools and machinery like tractors and irrigation systems.</p>
-    </div>
-    <div class="incentive-card">
-        <img src="{% static 'assets/img/img_11.png' %}" alt="Quality Seeds and Fertilizers" />
-        <h2>Access to Quality Seeds and Fertilizers</h2>
-        <p>Receive high-quality seeds and fertilizers to increase crop yield.</p>
-    </div>
-    <div class="incentive-card">
-        <img src="{% static 'assets/img/img.png' %}" alt="Training Programs" />
-        <h2>Training and Education Programs</h2>
-        <p>Free or discounted agricultural training to improve farming techniques.</p>
-    </div>
-    <div class="incentive-card">
-        <img src="{% static 'assets/img/img_12.png' %}" alt="Microloans" />
-        <h2>Microloans and Financial Support</h2>
-        <p>Access small loans with low interest rates to grow your farming business.</p>
-    </div>
-    <div class="incentive-card">
-        <img src="{% static 'assets/img/img_13.png' %}" alt="Insurance" />
-        <h2>Insurance Packages</h2>
-        <p>Affordable crop and livestock insurance to protect against risks.</p>
-    </div>
-</div>
+        .incentive-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
 
+        .incentive-card:hover {
+            transform: scale(1.05);
+        }
 
-<!-- Footer Section -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <h3>About AgriConnect</h3>
-            <p>AgriConnect is a platform that connects local farmers with consumers, enabling direct sales, expert consultations, and support for agricultural businesses. We aim to create a sustainable, farmer-focused ecosystem.</p>
+        .incentive-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .incentive-card h2 {
+            font-size: 1.3em;
+            color: #2d6a4f;
+            margin: 15px 0;
+        }
+
+        .incentive-card p {
+            font-size: 1em;
+            color: #555;
+            padding: 0 15px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .incentives-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .incentive-card h2 {
+                font-size: 1.2em;
+            }
+
+            .incentive-card p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+
+    <div class="incentives-section">
+        <h1>Farm Incentives</h1>
+        <div class="incentives-container">
+            <div class="incentive-card">
+                <img src="{% static 'assets/img/img_10.png' %}" alt="Subsidized Equipment" />
+                <h2>Subsidized Equipment and Tools</h2>
+                <p>Get discounts on essential farming tools and machinery like tractors and irrigation systems.</p>
+            </div>
+            <div class="incentive-card">
+                <img src="{% static 'assets/img/img_11.png' %}" alt="Quality Seeds and Fertilizers" />
+                <h2>Access to Quality Seeds and Fertilizers</h2>
+                <p>Receive high-quality seeds and fertilizers to increase crop yield.</p>
+            </div>
+            <div class="incentive-card">
+                <img src="{% static 'assets/img/img.png' %}" alt="Training Programs" />
+                <h2>Training and Education Programs</h2>
+                <p>Free or discounted agricultural training to improve farming techniques.</p>
+            </div>
+            <div class="incentive-card">
+                <img src="{% static 'assets/img/img_12.png' %}" alt="Microloans" />
+                <h2>Microloans and Financial Support</h2>
+                <p>Access small loans with low interest rates to grow your farming business.</p>
+            </div>
+            <div class="incentive-card">
+                <img src="{% static 'assets/img/img_13.png' %}" alt="Insurance" />
+                <h2>Insurance Packages</h2>
+                <p>Affordable crop and livestock insurance to protect against risks.</p>
+            </div>
         </div>
+    </div>
 
-        <div class="footer-section">
-            <h3>Follow Us</h3>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">LinkedIn</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 202
-        </p>
-    </div>
-</footer>
-</body>
-</html>
+{% endblock %}

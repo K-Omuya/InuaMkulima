@@ -1,39 +1,107 @@
-<!doctype html>
-<html lang="en">
-<head>
-    {% load static %}
+{% extends 'base.html' %}
 
-    <link rel="stylesheet" href="{% static 'assets/css/weather.css' %}">
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>weather forecast</title>
-</head>
-<body>
-<header>
-  <div class="logo">
-    <h1>InuaMkulima</h1>
-  </div>
-  <nav>
-    <ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'trainings' %}">trainings</a></li>
-            <li><a href="{% url 'incentives' %}">incentives</a></li>
-            <li><a href="{% url 'weather' %}">Forecast</a></li>
-            <li><a href="{% url 'consultation' %}">Consultation</a></li>
-            <li><a href="{% url 'services' %}">Services</a></li>
-            <li><a href="{% url 'question' %}">FAQs</a></li>
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-            <li><a href="{% url 'market' %}">Market</a></li>
-            <li><a href="{% url 'loan' %}">Loans</a></li>
-            <li><a href="{% url 'show' %}">show</a></li>
-            <li><a href="{% url 'upload' %}">upload</a></li>
+{% load static %}
 
-    </ul>
-  </nav>
-</header>
+{% block content %}
+    <style>
+
+/* Weather Section */
+.weather-forecast {
+    background-image: <img src="{% static 'assets/img/carr.jpg' %}" alt="Sustainable Agriculture">;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.form-container {
+    margin-bottom: 30px;
+}
+
+label {
+    font-size: 1rem;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.cta-button {
+    background-color: green;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: green;
+}
+
+.weather-info {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.weather-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.weather-info p {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    input, .cta-button {
+        font-size:1rem;
+}
+}
+
+    </style>
     <!-- Weather Forecast Section -->
     <section class="weather-forecast">
         <div class="container">
@@ -70,26 +138,5 @@
         </div>
     </section>
 
-    <script src="weather.js"></script>
 
-<footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <h3>About AgriConnect</h3>
-            <p>AgriConnect is a platform that connects local farmers with consumers, enabling direct sales, expert consultations, and support for agricultural businesses. We aim to create a sustainable, farmer-focused ecosystem.</p>
-        </div>
-
-        <div class="footer-section">
-            <h3>Follow Us</h3>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">LinkedIn</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024</p>
-</body>
-</html>
+{% endblock %}

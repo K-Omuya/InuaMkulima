@@ -1,10 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}InuaMkulima{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Header with Navigation */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3CB371; /* Warm Green */
+            color: white;
+            padding: 15px 20px;
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 12px;
+            transition: background 0.3s ease;
+            position: relative;
+        }
+        nav a:hover {
+            background: #2E8B57;
+            border-radius: 5px;
+        }
+
+        /* Dropdown Styling */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #A8E6A3; /* Light Green */
+            min-width: 150px;
+            top: 100%;
+            left: 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: #004d00;
+            text-align: left;
+        }
+        .dropdown-menu a:hover {
+            background: #76C17C;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3CB371; /* Warm Green */
+            color: white;
+            padding: 15px 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            text-align: center;
+        }
+
+        .footer-links {
+            text-align: left;
+        }
+
+        .footer-links a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+
+        .footer-links a:hover {
+            color: #004d00;
+        }
+
+        .social-icons {
+            text-align: right;
+        }
+
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 24px;
+        }
+
+        .social-icons a:hover {
+            color: #004d00;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-section {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div class="header-container">
+        <h1>InuaMkulima</h1>
+        <nav>
+
+            <a href="{% url 'manage' %}">Admin</a>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'about' %}">About Us</a>
+
+            <!-- Dropdown for Services -->
+            <div class="dropdown">
+                <a href=>Services ▼</a>
+                <div class="dropdown-menu">
+
+                    <a href="{% url 'trainings' %}">Trainings</a>
+                    <a href="{% url 'incentives' %}">Incentives</a>
+                    <a href="{% url 'weather' %}">Forecast</a>
+                    <a href="{% url 'consultation' %}">Consultation</a>
+                    <a href="{% url 'loan' %}">Loans</a>
+                </div>
+            </div>
+
+            <a href="{% url 'question' %}">FAQs</a>
+            <a href="{% url 'contact' %}">Contact Us</a>
+            <a href="{% url 'market' %}">Market</a>
+        </nav>
+    </div>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer-container">
+        <!-- Quick Links (Left) -->
+        <div class="footer-section footer-links">
+            <h3>Quick Links</h3>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'market' %}">Market</a>
+            <a href="{% url 'question' %}">FAQs</a>
+        </div>
+
+        <!-- Contact Info (Center) -->
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: info@inuamkulima.com</p>
+            <p>Phone: +254 700 123 456</p>
+            <p>Address: Nairobi, Kenya</p>
+        </div>
+
+        <!-- Social Media Icons (Right) -->
+        <div class="footer-section social-icons">
+            <h3>Follow Us</h3>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
 </body>
 </html>

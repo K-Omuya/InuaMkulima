@@ -1,46 +1,180 @@
-<!doctype html>
-<html lang="en">
-<head>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'assets/css/trainings.css' %}">
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<header>
-  <div class="logo">
-    <h1>InuaMkulima</h1>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="{% url 'index' %}" style="font-size: 14px;">Home</a></li>
-      <li><a href="{% url 'about' %}" style="font-size: 14px;">About Us</a></li>
-      <li><a href="{% url 'trainings' %}" style="font-size: 14px;">Trainings</a></li>
-      <li><a href="{% url 'incentives' %}" style="font-size: 14px;">Incentives</a></li>
-      <li><a href="{% url 'weather' %}" style="font-size: 14px;">Forecast</a></li>
-      <li><a href="{% url 'consultation' %}" style="font-size: 14px;">Consultation</a></li>
-      <li><a href="{% url 'services' %}" style="font-size: 14px;">Services</a></li>
-      <li><a href="{% url 'question' %}" style="font-size: 14px;">FAQs</a></li>
-      <li><a href="{% url 'contact' %}" style="font-size: 14px;">Contact Us</a></li>
-      <li><a href="{% url 'market' %}" style="font-size: 14px;">Market</a></li>
-      <li><a href="{% url 'loan' %}" style="font-size: 14px;">Loans</a></li>
+{% extends 'base.html' %}
 
-      <li><a href="{% url 'upload' %}" style="font-size: 14px;">Upload</a></li>
-    </ul>
-  </nav>
+{% load static %}
 
-</header>
+{% block content %}
+    <style>
+    /* General Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Main Container */
+.learn-more-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the content */
+}
+
+/* Headings Styling */
+h1, h2 {
+    color: #2d6a4f;  /* Green accent */
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* List Styling */
+ul, ol {
+    font-size: 1.1em;
+    margin: 20px 0;
+    padding-left: 40px;  /* Increased padding to align list numbers */
+    text-align: left;  /* Ensures numbers are aligned left */
+}
+
+ol {
+    list-style-position: inside; /* Numbers are aligned with content */
+}
+
+ul li, ol li {
+    margin-bottom: 10px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #2d6a4f;  /* Green accent */
+    color: #fff;
+    font-size: 1.2em;
+}
+
+table td {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Table Row Hover Effect */
+table tr:hover {
+    background-color: #eaf1f0;
+}
+
+/* Button Styling for Enrollment or Inquiries */
+button {
+    padding: 12px 24px;
+    background-color: #2d6a4f;  /* Green accent */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #236a42;  /* Darker green on hover */
+}
+
+/* Link Styling */
+a {
+    color: #2d6a4f;  /* Green accent */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Section */
+.contact-info p {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.contact-info a {
+    color: #2d6a4f;  /* Green accent */
+    font-weight: 600;
+}
 
 
+/* Mobile-Friendly Styles */
+@media (max-width: 768px) {
+    .learn-more-container {
+        width: 95%;
+        margin: 15px auto;
+        padding: 10px;
+    }
 
-    <!-- Marquee Section -->
-    <section class="marquee">
-        <marquee>Welcome to Inuamkulima - Your Smart Agriculture Partner for the Future!</marquee>
-    </section>
-<div class="learn-more-container">
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    p, ul li, ol li {
+        font-size: 1em;
+        line-height: 1.5;
+    }
+
+    /* Table Responsiveness */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    table th, table td {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    /* Full-Width Button for Better Touch Experience */
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+    }
+}
+
+    </style>
+    <div class="learn-more-container">
     <h1>Learn More About Our Training Programs</h1>
     <section class="training-details">
         <h2>Our Training Courses</h2>
@@ -107,6 +241,7 @@
         <p>Email: <a href="maryakoth846@gmail.com">maryakoth846@gmail.com</a></p>
         <p>Phone: +254 795 330 891</p>
     </section>
-</div>
-</body>
-</html>
+
+{% endblock %}
+
+

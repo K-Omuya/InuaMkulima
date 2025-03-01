@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="consultation">
+    <h2>Your Consultation Requests</h2>
+    <table border="1">
+        <tr>
+            <th>Consultation Type</th>
+            <th>Status</th>
+            <th>Consultation Date</th>
+        </tr>
+        {% for consultation in consultations %}
+        <tr>
+            <td>{{ consultation.consultation_type }}</td>
+            <td>{{ consultation.status }}</td>
+            <td>{{ consultation.consultation_date|default:"Pending" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+{% endblock %}

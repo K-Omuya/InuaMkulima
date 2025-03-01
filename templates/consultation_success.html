@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<section style="text-align: center; padding: 50px;">
+    <h2 style="color: green;">Your request has been submitted!</h2>
+    <p>We will review your request and get back to you soon.</p>
+    <a href="{% url 'home' %}" style="text-decoration: none; background: #004080; color: white; padding: 10px 20px; border-radius: 5px;">Return Home</a>
+</section>
+{% endblock %}

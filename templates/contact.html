@@ -1,51 +1,168 @@
-<!doctype html>
-<html lang="en">
-<head>
-    {% load static %}
+{% extends 'base.html' %}
 
- <link rel="stylesheet" href="{% static 'assets/css/contacts.css' %}">
+{% load static %}
 
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>contact</title>
-</head>
-<body>
-<header>
-    <div class="logo">
-<!--         <img src="assets/img/logo/My%20web%20logo.png" alt="ShopWithSimon Logo">-->
-        <h1>AgriConnect</h1> <!-- Your brand name -->
-<!---->
-    </div>
-    <nav>
-        <ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'trainings' %}">trainings</a></li>
-            <li><a href="{% url 'incentives' %}">incentives</a></li>
-            <li><a href="{% url 'weather' %}">Forecast</a></li>
-            <li><a href="{% url 'consultation' %}">Consultation</a></li>
-            <li><a href="{% url 'services' %}">Services</a></li>
-            <li><a href="{% url 'question' %}">FAQs</a></li>
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-            <li><a href="{% url 'market' %}">Market</a></li>
-            <li><a href="{% url 'loan' %}">Loans</a></li>
+{% block content %}
+    <style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-            <li><a href="{% url 'upload' %}">upload</a></li>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+    }
 
-        </ul>
+    .contact-us {
+        padding: 30px 20px;
+        background-color: #f9f9f9;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 1200px;
+        text-align: center;
+    }
 
-    </nav>
-    <div class="header-right">
-<!--        <button id="viewCart" class="btn">-->
-<!--             <a href="cart.html">Cart</a>-->
-<!--        </button> &lt;!&ndash; Cart button &ndash;&gt;-->
-        <button id="loginBtn" class="btn">
-            <a href="login.html">Login</a>
-        </button> <!-- Login button -->
-    </div>
-</header>
+    .contact-us h2 {
+        color: #4CAF50;
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .contact-us p {
+        color: #666;
+        margin-bottom: 20px;
+        font-size: 1rem;
+    }
+
+    /* Contact Form */
+    .contact-form {
+        margin: 20px auto;
+        text-align: left;
+        max-width: 600px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-family: inherit;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color: #4CAF50;
+        outline: none;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+    }
+
+    .contact-form .cta-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .contact-form .cta-button:hover {
+        background-color: #45a049;
+    }
+
+    /* Contact Information */
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .contact-item {
+        text-align: center;
+        flex: 1 1 300px;
+        max-width: 300px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-item h3 {
+        color: #4CAF50;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+
+    .contact-item p {
+        color: #666;
+        font-size: 1rem;
+    }
+
+    .contact-item i {
+        font-size: 2rem;
+        color: #4CAF50;
+        margin-bottom: 10px;
+    }
+
+    /* Google Map */
+    .map {
+        margin-top: 30px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .map iframe {
+        border: none;
+        width: 100%;
+        height: 300px;
+        border-radius: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .contact-info {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-item {
+            width: 90%;
+        }
+
+        .contact-form {
+            width: 90%;
+        }
+    }
+    </style>
+
+    <!-- Add FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <!-- Contact Us Section -->
     <section class="contact-us">
@@ -55,17 +172,9 @@
 
             <!-- Contact Form -->
             <div class="contact-form">
-                <form  method="POST">
+                <form method="POST">
                     {% csrf_token %}
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required>
-
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <label for="message">Your Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-
+                    {{ form.as_p }}
                     <button type="submit" class="cta-button">Send Message</button>
                 </form>
             </div>
@@ -73,26 +182,27 @@
             <!-- Contact Information -->
             <div class="contact-info">
                 <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
                     <h3>Our Office</h3>
                     <p>123 SmartAgri Avenue, Nairobi, Kenya</p>
                 </div>
                 <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
                     <h3>Phone</h3>
                     <p>+254 700 123 456</p>
                 </div>
                 <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
                     <p>support@smartagri.com</p>
                 </div>
             </div>
 
-            <!-- Google Map Section (Optional) -->
-            <!-- You can embed a Google map iframe here to show your office location -->
-            <div class="map"width="100%" height="300" >
-              <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d510684.4453611807!2d36.810362760436966!3d-0.3976520314855486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1827b9ef575b1ab7%3A0xfa2913c1ffafb42a!2sChuka%20University!5e0!3m2!1sen!2ske!4v1733246296255!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              </div>
+            <!-- Google Map -->
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d510684.4453611807!2d36.810362760436966!3d-0.3976520314855486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1827b9ef575b1ab7%3A0xfa2913c1ffafb42a!2sChuka%20University!5e0!3m2!1sen!2ske!4v1733246296255!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
     </section>
 
-</body>
-</html>
+{% endblock %}
